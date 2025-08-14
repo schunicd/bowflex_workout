@@ -49,6 +49,7 @@ export default function StartWorkout() {
                     />
                     <figcaption className="px-4 py-2 text-xs text-slate-600 text-center">Front</figcaption>
                   </figure>
+                  
                 )}
                 {back && (
                   <figure className="rounded-xl overflow-hidden bg-white shadow max-w-md mx-auto">
