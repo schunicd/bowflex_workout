@@ -6,12 +6,13 @@ export type ExerciseStep = {
   reps: string
   sections: {
     musclesWorked: {
+      summary?: string        // ⟵ make optional
       details: string[]
       images: {
         frontSrc: string
         backSrc: string
-        altFront: string
-        altBack: string
+        altFront?: string     // ⟵ make optional
+        altBack?: string      // ⟵ make optional
       }
     }
     position: string[]

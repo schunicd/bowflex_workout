@@ -30,32 +30,35 @@ export default function StartWorkout() {
       <div className="space-y-3">
         {/* Muscles Worked */}
         <AccordionSection title="Muscles Worked">
-          <p className="mb-3">{ex.sections.musclesWorked.summary}</p>
+          {!!ex.sections.musclesWorked.summary && (
+            <p className="mb-3">{ex.sections.musclesWorked.summary}</p>
+          )}
+
           {(() => {
-            const imgs = ex.sections.musclesWorked.images as any;
-            const front = (imgs.frontSrc || '').trim();
-            const back = (imgs.backSrc || '').trim();
-            const count = (front ? 1 : 0) + (back ? 1 : 0);
-            if (count === 0) return null;
+            const { images, details } = ex.sections.musclesWorked
+            const front = (images.frontSrc || '').trim()
+            const back  = (images.backSrc  || '').trim()
+            const count = (front ? 1 : 0) + (back ? 1 : 0)
+            if (count === 0) return null
+
             return (
               <div className={count === 2 ? "grid sm:grid-cols-2 gap-4" : "grid gap-4"}>
                 {front && (
                   <figure className="rounded-xl overflow-hidden bg-white shadow max-w-md mx-auto">
                     <img
                       src={front}
-                      alt={ex.sections.musclesWorked.altFront || "Front"}
+                      alt={images.altFront || "Front"}
                       className="exercise-anatomy-image"
                       loading="lazy"
                     />
                     <figcaption className="px-4 py-2 text-xs text-slate-600 text-center">Front</figcaption>
                   </figure>
-                  
                 )}
                 {back && (
                   <figure className="rounded-xl overflow-hidden bg-white shadow max-w-md mx-auto">
                     <img
                       src={back}
-                      alt={ex.sections.musclesWorked.altBack || "Back"}
+                      alt={images.altBack || "Back"}
                       className="exercise-anatomy-image"
                       loading="lazy"
                     />
@@ -65,12 +68,16 @@ export default function StartWorkout() {
               </div>
             )
           })()}
-          {ex.sections.musclesWorked.details.length > 0 && (
+
+          {ex.sections.musclesWorked.details?.length > 0 && (
             <ul className="mt-3 list-disc pl-6">
-              {ex.sections.musclesWorked.details.map((d, i) => <li key={i} className="mt-1">{d}</li>)}
+              {ex.sections.musclesWorked.details.map((d, i) => (
+                <li key={i} className="mt-1">{d}</li>
+              ))}
             </ul>
           )}
         </AccordionSection>
+
         <AccordionSection title="Position">
           <Bullets items={ex.sections.position} />
         </AccordionSection>
