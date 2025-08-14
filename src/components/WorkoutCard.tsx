@@ -1,0 +1,1 @@
+// Card UI handled in HomeGrid; left intentionally minimal.\n

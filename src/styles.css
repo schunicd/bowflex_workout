@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.exercise-anatomy-image{
+  display: block;            /* So margin auto works */
+  margin-left: auto;
+  margin-right: auto;         /* Centers horizontally */
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;          /* Adjust height as needed */
+  object-fit: contain;
+  border-radius: 1rem;     /* Optional rounded corners */
+  padding-top: 10px;
+}
+
+.exercise-step-image {
+  display: block;            /* So margin auto works */
+  margin-left: auto;
+  margin-right: auto;         /* Centers horizontally */
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;          /* Adjust height as needed */
+  object-fit: contain;
+  border-radius: 1rem;      /* Optional rounded corners */
+  padding-top: 10px;
+}
